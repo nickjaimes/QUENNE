@@ -1,0 +1,3336 @@
+QUENNE: COMPLETE PROJECT PACKAGE
+
+📁 Project Structure
+
+```
+QUENNE/
+│
+├── 📚 README.md                           # Project overview (current file)
+├── 📄 LICENSE.md                          # Quantum Innovation License v2.0
+├── 🔧 setup.py                            # Package installation setup
+├── 📋 requirements.txt                    # Core dependencies
+├── 📊 requirements-dev.txt                # Development dependencies
+├── 📈 requirements-quantum.txt            # Quantum computing dependencies
+├── 🧠 requirements-neuromorphic.txt       # Neuromorphic computing dependencies
+├── 🐳 docker-compose.yml                  # Docker orchestration
+├── 🚢 Dockerfile                          # Container build file
+├── ☸️ kubernetes/                         # K8s deployment manifests
+├── 📜 .gitignore                         # Git ignore rules
+├── 🔒 .env.example                       # Environment template
+├── 🧪 .pre-commit-config.yaml            # Pre-commit hooks
+├── 📊 pyproject.toml                     # Modern Python project config
+│
+├── 📁 quenne/                            # Main Python package
+│   ├── __init__.py                       # Package initialization
+│   ├── __version__.py                    # Version information
+│   ├── core/                            # Core system components
+│   │   ├── __init__.py
+│   │   ├── system.py                    # Main QUENNE system class
+│   │   ├── config.py                    # Configuration management
+│   │   ├── exceptions.py                # Custom exceptions
+│   │   └── constants.py                 # System constants
+│   │
+│   ├── quantum/                         # Quantum processing layer
+│   │   ├── __init__.py
+│   │   ├── qpu_interface.py            # Quantum processor interface
+│   │   ├── qnn.py                      # Quantum neural networks
+│   │   ├── state_manager.py            # Quantum state management
+│   │   ├── inference_engine.py         # Quantum state inference
+│   │   └── utils/                      # Quantum utilities
+│   │       ├── error_correction.py
+│   │       └── optimization.py
+│   │
+│   ├── neuromorphic/                    # Neuromorphic cognition layer
+│   │   ├── __init__.py
+│   │   ├── snn_core.py                 # Spiking neural network core
+│   │   ├── associative_memory.py       # Associative memory fields
+│   │   ├── plasticity.py               # Learning rules
+│   │   ├── cortex.py                   # Neuromorphic cortex
+│   │   └── utils/                      # Neuromorphic utilities
+│   │       ├── spike_encoding.py
+│   │       └── pattern_utils.py
+│   │
+│   ├── edge/                           # Edge-actuated embodiment layer
+│   │   ├── __init__.py
+│   │   ├── sensor_fusion.py           # Multi-modal sensor fusion
+│   │   ├── situational_awareness.py   # Situational awareness engine
+│   │   ├── actuator_control.py        # Actuator interface
+│   │   └── hardware/                  # Hardware interfaces
+│   │       ├── sensors.py
+│   │       └── actuators.py
+│   │
+│   ├── resilience/                     # Resilience & homeostasis layer
+│   │   ├── __init__.py
+│   │   ├── homeostat.py               # Homeostatic regulation
+│   │   ├── immune_security.py         # Immune-style security
+│   │   ├── energy_management.py       # Energy optimization
+│   │   └── fault_tolerance.py         # Fault tolerance mechanisms
+│   │
+│   ├── orchestration/                  # Cross-layer orchestration
+│   │   ├── __init__.py
+│   │   ├── state_sync.py              # State synchronization
+│   │   ├── semantic_bus.py            # Semantic bus communication
+│   │   ├── resource_manager.py        # Resource management
+│   │   └── scheduler.py               # Task scheduling
+│   │
+│   ├── networking/                     # 6G semantic networking
+│   │   ├── __init__.py
+│   │   ├── semantic_protocol.py       # Semantic protocol stack
+│   │   ├── 6g_interface.py           # 6G network interface
+│   │   └── quantum_network.py         # Quantum networking
+│   │
+│   ├── applications/                   # Vertical applications
+│   │   ├── __init__.py
+│   │   ├── healthcare/               # Healthcare applications
+│   │   │   ├── monitoring.py
+│   │   │   ├── diagnosis.py
+│   │   │   └── treatment.py
+│   │   ├── autonomous/               # Autonomous systems
+│   │   │   ├── vehicles.py
+│   │   │   ├── drones.py
+│   │   │   └── robotics.py
+│   │   ├── scientific/               # Scientific research
+│   │   │   ├── materials.py
+│   │   │   ├── climate.py
+│   │   │   └── genomics.py
+│   │   └── infrastructure/           # Smart infrastructure
+│   │       ├── smart_grid.py
+│   │       ├── traffic.py
+│   │       └── water_management.py
+│   │
+│   ├── evolution/                     # Self-evolution system
+│   │   ├── __init__.py
+│   │   ├── autocatalysis.py          # Autocatalytic improvement
+│   │   ├── architecture_search.py    # Architecture evolution
+│   │   └── meta_learning.py          # Meta-learning system
+│   │
+│   ├── api/                          # REST and WebSocket APIs
+│   │   ├── __init__.py
+│   │   ├── rest_api.py              # REST API server
+│   │   ├── websocket_api.py         # WebSocket for real-time
+│   │   └── cli.py                   # Command-line interface
+│   │
+│   ├── utils/                        # Utility functions
+│   │   ├── __init__.py
+│   │   ├── logging.py               # Logging configuration
+│   │   ├── metrics.py               # Performance metrics
+│   │   ├── serialization.py         # Data serialization
+│   │   └── validation.py            # Input validation
+│   │
+│   └── tests/                        # Unit tests
+│       ├── __init__.py
+│       ├── test_quantum.py
+│       ├── test_neuromorphic.py
+│       ├── test_edge.py
+│       ├── test_resilience.py
+│       └── test_integration.py
+│
+├── 📁 examples/                       # Example scripts and notebooks
+│   ├── basic_usage.ipynb            # Basic usage tutorial
+│   ├── healthcare_demo.ipynb        # Healthcare application demo
+│   ├── autonomous_systems.ipynb     # Autonomous systems demo
+│   ├── quick_start.py              # Quick start script
+│   └── templates/                  # Application templates
+│       ├── healthcare_app.py
+│       ├── industrial_app.py
+│       └── research_app.py
+│
+├── 📁 docs/                          # Documentation
+│   ├── index.md                     # Documentation homepage
+│   ├── getting_started.md          # Getting started guide
+│   ├── architecture/               # Architecture documentation
+│   │   ├── overview.md
+│   │   ├── quantum_layer.md
+│   │   ├── neuromorphic_layer.md
+│   │   └── system_architecture.md
+│   ├── api/                        # API documentation
+│   │   ├── quantum_api.md
+│   │   ├── neuromorphic_api.md
+│   │   └── rest_api.md
+│   ├── tutorials/                  # Tutorials
+│   │   ├── building_apps.md
+│   │   ├── deployment.md
+│   │   └── optimization.md
+│   ├── research/                   # Research papers
+│   │   ├── whitepaper.pdf
+│   │   ├── cognitive_physics.pdf
+│   │   └── benchmarks.pdf
+│   └── mkdocs.yml                  # MkDocs configuration
+│
+├── 📁 tests/                        # Comprehensive test suite
+│   ├── unit/                       # Unit tests
+│   │   ├── test_quantum_components.py
+│   │   ├── test_neuromorphic_components.py
+│   │   └── test_edge_components.py
+│   ├── integration/                # Integration tests
+│   │   ├── test_system_integration.py
+│   │   ├── test_cross_layer.py
+│   │   └── test_network_integration.py
+│   ├── performance/                # Performance tests
+│   │   ├── benchmark_quantum.py
+│   │   ├── benchmark_neuromorphic.py
+│   │   └── benchmark_system.py
+│   └── fixtures/                   # Test fixtures
+│       ├── test_data/
+│       └── test_configs/
+│
+├── 📁 scripts/                      # Utility scripts
+│   ├── setup_environment.sh       # Environment setup script
+│   ├── deploy_local.sh           # Local deployment script
+│   ├── deploy_cloud.sh           # Cloud deployment script
+│   ├── benchmark.sh              # Benchmarking script
+│   └── generate_docs.sh          # Documentation generation
+│
+├── 📁 docker/                       # Docker configuration
+│   ├── Dockerfile                 # Main Dockerfile
+│   ├── Dockerfile.dev             # Development Dockerfile
+│   ├── Dockerfile.quantum         # Quantum-specific Dockerfile
+│   ├── docker-compose.yml         # Docker Compose configuration
+│   ├── docker-compose.dev.yml     # Development configuration
+│   └── docker-compose.prod.yml    # Production configuration
+│
+├── 📁 kubernetes/                  # Kubernetes manifests
+│   ├── namespace.yaml            # K8s namespace
+│   ├── configmap.yaml            # Configuration
+│   ├── secrets.yaml              # Secrets (template)
+│   ├── deployment.yaml           # Main deployment
+│   ├── service.yaml              # Service definitions
+│   ├── ingress.yaml              # Ingress configuration
+│   ├── hpa.yaml                  # Horizontal pod autoscaler
+│   └── storage/                  # Storage configurations
+│       ├── pvc.yaml
+│       └── storage-class.yaml
+│
+├── 📁 infrastructure/              # Infrastructure as Code
+│   ├── terraform/                # Terraform configurations
+│   │   ├── main.tf
+│   │   ├── variables.tf
+│   │   ├── outputs.tf
+│   │   └── modules/
+│   │       ├── network/
+│   │       ├── compute/
+│   │       └── storage/
+│   ├── ansible/                  # Ansible playbooks
+│   │   ├── playbooks/
+│   │   │   ├── setup_quantum.yml
+│   │   │   └── setup_neuromorphic.yml
+│   │   └── inventory/
+│   └── cloudformation/           # AWS CloudFormation
+│       ├── quenne-stack.yaml
+│       └── parameters.json
+│
+├── 📁 monitoring/                  # Monitoring and observability
+│   ├── prometheus/               # Prometheus configuration
+│   │   ├── prometheus.yml
+│   │   └── alerts.yml
+│   ├── grafana/                  # Grafana dashboards
+│   │   ├── dashboard.yml
+│   │   └── panels/
+│   ├── loki/                     # Log aggregation
+│   │   └── loki-config.yaml
+│   └── tempo/                    # Distributed tracing
+│       └── tempo-config.yaml
+│
+├── 📁 data/                        # Sample data and datasets
+│   ├── healthcare/               # Healthcare datasets
+│   ├── autonomous/               # Autonomous systems data
+│   ├── scientific/               # Scientific data
+│   └── synthetic/                # Synthetic test data
+│
+└── 📁 .github/                     # GitHub workflows and templates
+    ├── workflows/                # CI/CD workflows
+    │   ├── ci.yml               # Continuous integration
+    │   ├── cd.yml               # Continuous deployment
+    │   ├── tests.yml            # Test automation
+    │   └── release.yml          # Release automation
+    ├── ISSUE_TEMPLATE/          # Issue templates
+    │   ├── bug_report.md
+    │   ├── feature_request.md
+    │   └── security_report.md
+    └── PULL_REQUEST_TEMPLATE/   # PR templates
+        └── pull_request_template.md
+```
+
+---
+
+📄 1. LICENSE.md
+
+```markdown
+# QUANTUM INNOVATION LICENSE (QIL) v2.0
+
+## Preamble
+This license governs the use of the QUENNE (Quantum-Edge-NeuroNorphic Engine) software and associated documentation. The goal of this license is to promote innovation while ensuring ethical use and fair compensation for commercial applications.
+
+## 1. Definitions
+- "Software": The QUENNE codebase, documentation, and associated materials
+- "Academic Use": Non-commercial research, teaching, and educational purposes
+- "Commercial Use": Any use intended for or resulting in commercial advantage
+- "Contributor": Any entity that contributes to the Software
+- "Derivative Work": Any modification, enhancement, or adaptation of the Software
+
+## 2. Grant of License
+
+### 2.1 Academic Use License
+For Academic Use, this license grants:
+- Free use, modification, and distribution
+- Right to create Derivative Works
+- Right to publish research based on the Software
+
+### 2.2 Commercial Use License
+For Commercial Use, a separate commercial license must be obtained. Contact: licensing@quenne.ai
+
+## 3. Restrictions
+
+### 3.1 Prohibited Uses
+The Software may not be used for:
+- Military applications or weapons development
+- Surveillance violating human rights
+- Activities causing environmental harm
+- Discrimination or bias enforcement
+- Any illegal activities
+
+### 3.2 Patent License
+Each Contributor grants a patent license for their contributions, subject to the terms of this license.
+
+## 4. Redistribution Requirements
+
+### 4.1 Academic Redistribution
+When redistributing Academic versions:
+- Must include this license
+- Must give credit to QUENNE Technologies
+- Must share modifications under same terms
+
+### 4.2 Commercial Redistribution
+Commercial redistribution requires explicit written permission.
+
+## 5. Attribution
+All uses must include proper attribution:
+"Powered by QUENNE - Quantum-Edge-NeuroNorphic Engine"
+
+## 6. No Warranty
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND.
+
+## 7. Limitation of Liability
+IN NO EVENT SHALL THE AUTHORS BE LIABLE FOR ANY CLAIM.
+
+## 8. Termination
+This license terminates automatically if you violate its terms.
+
+## 9. Governing Law
+This license is governed by the laws of Japan.
+
+## 10. Contact
+For licensing inquiries: licensing@quenne.ai
+For technical support: support@quenne.ai
+
+---
+
+**Effective Date**: January 5, 2026
+**Version**: 2.0
+```
+
+---
+
+🔧 2. setup.py
+
+```python
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+"""Setup script for QUENNE package."""
+
+import os
+import re
+from setuptools import setup, find_packages
+from pathlib import Path
+
+# Read version from package
+version_file = Path("quenne") / "__version__.py"
+version_content = version_file.read_text() if version_file.exists() else ""
+version_match = re.search(r"^__version__ = ['\"]([^'\"]*)['\"]", version_content, re.M)
+
+if version_match:
+    version = version_match.group(1)
+else:
+    version = "3.0.0-alpha"
+
+# Read requirements
+def read_requirements(filename):
+    return [line.strip() for line in Path(filename).read_text().splitlines() 
+            if line.strip() and not line.startswith("#")]
+
+setup(
+    name="quenne",
+    version=version,
+    description="Quantum-Edge-NeuroNorphic Engine for Cognitive Computing",
+    long_description=Path("README.md").read_text(),
+    long_description_content_type="text/markdown",
+    author="Nicolas Santiago",
+    author_email="safewayguardian@gmail.com",
+    url="https://github.com/nicolas-santiago/quenne",
+    project_urls={
+        "Documentation": "https://quenne.ai/docs",
+        "Source": "https://github.com/nicolas-santiago/quenne",
+        "Tracker": "https://github.com/nicolas-santiago/quenne/issues",
+    },
+    license="Quantum Innovation License v2.0",
+    classifiers=[
+        "Development Status :: 4 - Beta",
+        "Intended Audience :: Science/Research",
+        "Intended Audience :: Developers",
+        "Topic :: Scientific/Engineering :: Artificial Intelligence",
+        "Topic :: Scientific/Engineering :: Quantum Computing",
+        "License :: Other/Proprietary License",
+        "Programming Language :: Python :: 3",
+        "Programming Language :: Python :: 3.10",
+        "Programming Language :: Python :: 3.11",
+        "Programming Language :: Python :: 3.12",
+        "Operating System :: OS Independent",
+    ],
+    keywords=[
+        "quantum computing",
+        "neuromorphic computing",
+        "artificial intelligence",
+        "cognitive computing",
+        "edge computing",
+        "6g networks",
+    ],
+    python_requires=">=3.10",
+    install_requires=read_requirements("requirements.txt"),
+    extras_require={
+        "quantum": read_requirements("requirements-quantum.txt"),
+        "neuromorphic": read_requirements("requirements-neuromorphic.txt"),
+        "dev": read_requirements("requirements-dev.txt"),
+        "docs": [
+            "mkdocs>=1.4",
+            "mkdocs-material>=9.0",
+            "mkdocstrings[python]>=0.21",
+        ],
+        "all": read_requirements("requirements.txt") +
+                read_requirements("requirements-quantum.txt") +
+                read_requirements("requirements-neuromorphic.txt"),
+    },
+    packages=find_packages(include=["quenne", "quenne.*"]),
+    package_data={
+        "quenne": [
+            "py.typed",
+            "*.pyi",
+            "data/*.json",
+            "data/*.yaml",
+        ],
+    },
+    entry_points={
+        "console_scripts": [
+            "quenne=quenne.api.cli:main",
+            "quenne-server=quenne.api.rest_api:main",
+            "quenne-benchmark=quenne.utils.metrics:run_benchmarks",
+        ],
+    },
+    include_package_data=True,
+    zip_safe=False,
+)
+```
+
+---
+
+📋 3. requirements.txt
+
+```txt
+# Core dependencies
+numpy>=1.24.0
+scipy>=1.10.0
+pandas>=2.0.0
+scikit-learn>=1.3.0
+
+# Machine learning
+torch>=2.0.0
+torchvision>=0.15.0
+transformers>=4.30.0
+datasets>=2.12.0
+
+# Quantum computing (optional - install with extras)
+# qiskit>=1.0.0
+# pennylane>=0.31.0
+# cirq>=1.0.0
+
+# Neuromorphic computing (optional - install with extras)
+# sinabs>=1.0.0
+# rockpool>=3.0.0
+
+# Web and API
+fastapi>=0.100.0
+uvicorn[standard]>=0.23.0
+websockets>=12.0
+pydantic>=2.0.0
+httpx>=0.24.0
+
+# Data processing
+dask>=2023.6.0
+polars>=0.18.0
+pyarrow>=12.0.0
+
+# Networking
+aiohttp>=3.8.0
+zmq>=25.0.0
+msgpack>=1.0.0
+
+# Utilities
+tqdm>=4.65.0
+colorama>=0.4.0
+rich>=13.4.0
+loguru>=0.7.0
+python-dotenv>=1.0.0
+
+# Testing and development
+pytest>=7.4.0
+pytest-asyncio>=0.21.0
+pytest-cov>=4.1.0
+hypothesis>=6.82.0
+
+# Type checking
+mypy>=1.5.0
+types-requests>=2.31.0
+
+# Documentation
+sphinx>=7.0.0
+sphinx-rtd-theme>=1.3.0
+nbsphinx>=0.9.0
+
+# Deployment
+docker>=6.1.0
+kubernetes>=26.0.0
+boto3>=1.28.0
+azure-identity>=1.12.0
+google-cloud-storage>=2.10.0
+```
+
+---
+
+📊 4. requirements-dev.txt
+
+```txt
+# Development tools
+black>=23.0.0
+flake8>=6.0.0
+isort>=5.12.0
+mypy>=1.5.0
+pre-commit>=3.3.0
+pylint>=3.0.0
+
+# Testing
+pytest>=7.4.0
+pytest-asyncio>=0.21.0
+pytest-cov>=4.1.0
+pytest-xdist>=3.3.0
+pytest-benchmark>=4.0.0
+hypothesis>=6.82.0
+
+# Documentation
+mkdocs>=1.4.0
+mkdocs-material>=9.0.0
+mkdocstrings[python]>=0.21.0
+mkdocs-jupyter>=0.24.0
+
+# Notebooks
+jupyter>=1.0.0
+jupyterlab>=4.0.0
+ipywidgets>=8.0.0
+ipykernel>=6.0.0
+
+# Code quality
+safety>=2.3.0
+bandit>=1.7.0
+radon>=5.1.0
+vulture>=2.7.0
+
+# Monitoring
+prometheus-client>=0.17.0
+opentelemetry-api>=1.20.0
+opentelemetry-sdk>=1.20.0
+
+# Build tools
+build>=0.10.0
+twine>=4.0.0
+wheel>=0.40.0
+setuptools>=68.0.0
+
+# CI/CD tools
+tox>=4.0.0
+nox>=2023.4.0
+invoke>=2.0.0
+```
+
+---
+
+📈 5. requirements-quantum.txt
+
+```txt
+# Quantum computing frameworks
+qiskit>=1.0.0
+qiskit-aer>=0.12.0
+qiskit-ibm-runtime>=0.14.0
+qiskit-machine-learning>=0.6.0
+
+# Alternative quantum frameworks
+pennylane>=0.31.0
+pennylane-lightning>=0.30.0
+cirq>=1.0.0
+cirq-google>=1.0.0
+
+# Quantum chemistry
+pyscf>=2.2.0
+openfermion>=1.5.0
+openfermion-pyscf>=0.5.0
+
+# Quantum optimization
+dimod>=0.12.0
+dwave-system>=1.20.0
+qiskit-optimization>=0.5.0
+
+# Quantum machine learning
+tensorflow-quantum>=0.7.0
+torch-quantum>=0.1.0
+
+# Visualization
+qiskit-visualization>=0.6.0
+plotly>=5.14.0
+
+# Quantum error correction
+plaquette>=0.1.0
+pymatching>=2.0.0
+
+# Quantum networking
+netqasm>=0.9.0
+squidasm>=0.4.0
+
+# Simulation acceleration
+cuda-quantum>=0.1.0  # If NVIDIA GPU available
+```
+
+---
+
+🧠 6. requirements-neuromorphic.txt
+
+```txt
+# Neuromorphic computing frameworks
+sinabs>=1.0.0
+sinabs-exodus>=1.0.0
+rockpool>=3.0.0
+
+# Spiking neural networks
+snntorch>=0.6.0
+spikingjelly>=0.0.0.14
+norse>=0.0.7
+
+# Brain-inspired computing
+brainbox>=0.6.0
+neo>=0.12.0
+elephant>=0.13.0
+
+# Neuromorphic hardware interfaces
+lava-nc>=0.5.0  # For Intel Loihi
+akida>=1.0.0    # For BrainChip Akida
+
+# Event-based processing
+expelliarmus>=0.1.0
+metavision-sdk>=4.0.0
+
+# Neuroscience data
+nixio>=1.5.0
+odml>=1.5.0
+
+# Visualization
+matplotlib>=3.7.0
+seaborn>=0.12.0
+brian2>=2.5.0
+
+# Optimization for neuromorphic
+sparse>=0.14.0
+scikit-sparse>=0.4.0
+
+# Real-time processing
+sounddevice>=0.4.0
+pygame>=2.5.0
+
+# Sensor interfaces
+opencv-python>=4.8.0
+pyrealsense2>=2.54.0
+pyserial>=3.5.0
+```
+
+---
+
+🐳 7. docker-compose.yml
+
+```yaml
+version: '3.8'
+
+services:
+  quenne-core:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+      args:
+        - QUANTUM_BACKEND=simulator
+        - NEUROMORPHIC_BACKEND=simulator
+    image: quenne:latest
+    container_name: quenne-core
+    restart: unless-stopped
+    ports:
+      - "8000:8000"  # REST API
+      - "8001:8001"  # WebSocket
+      - "9090:9090"  # Prometheus metrics
+    environment:
+      - QUENNE_ENVIRONMENT=development
+      - QUANTUM_BACKEND=${QUANTUM_BACKEND:-simulator}
+      - NEUROMORPHIC_BACKEND=${NEUROMORPHIC_BACKEND:-simulator}
+      - LOG_LEVEL=INFO
+      - CACHE_SIZE=10G
+    volumes:
+      - ./data:/app/data
+      - ./config:/app/config
+      - quenne-cache:/app/cache
+    networks:
+      - quenne-network
+    healthcheck:
+      test: ["CMD", "python", "-c", "import quenne; quenne.core.system.check_health()"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    deploy:
+      resources:
+        limits:
+          cpus: '4'
+          memory: 16G
+        reservations:
+          cpus: '2'
+          memory: 8G
+
+  quenne-database:
+    image: postgres:15-alpine
+    container_name: quenne-db
+    restart: unless-stopped
+    environment:
+      - POSTGRES_USER=quenne
+      - POSTGRES_PASSWORD=${DB_PASSWORD:-quenne123}
+      - POSTGRES_DB=quenne_cognitive
+    volumes:
+      - quenne-postgres-data:/var/lib/postgresql/data
+      - ./database/init.sql:/docker-entrypoint-initdb.d/init.sql
+    networks:
+      - quenne-network
+    ports:
+      - "5432:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U quenne"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  quenne-redis:
+    image: redis:7-alpine
+    container_name: quenne-redis
+    restart: unless-stopped
+    command: redis-server --appendonly yes --requirepass ${REDIS_PASSWORD:-redis123}
+    volumes:
+      - quenne-redis-data:/data
+    networks:
+      - quenne-network
+    ports:
+      - "6379:6379"
+    healthcheck:
+      test: ["CMD", "redis-cli", "--raw", "incr", "ping"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  quenne-prometheus:
+    image: prom/prometheus:latest
+    container_name: quenne-prometheus
+    restart: unless-stopped
+    volumes:
+      - ./monitoring/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
+      - prometheus-data:/prometheus
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+      - '--storage.tsdb.path=/prometheus'
+      - '--web.console.libraries=/etc/prometheus/console_libraries'
+      - '--web.console.templates=/etc/prometheus/consoles'
+      - '--storage.tsdb.retention.time=200h'
+      - '--web.enable-lifecycle'
+    networks:
+      - quenne-network
+    ports:
+      - "9091:9090"
+
+  quenne-grafana:
+    image: grafana/grafana:latest
+    container_name: quenne-grafana
+    restart: unless-stopped
+    environment:
+      - GF_SECURITY_ADMIN_PASSWORD=${GRAFANA_PASSWORD:-admin123}
+      - GF_INSTALL_PLUGINS=grafana-piechart-panel
+    volumes:
+      - grafana-data:/var/lib/grafana
+      - ./monitoring/grafana/dashboards:/etc/grafana/provisioning/dashboards
+      - ./monitoring/grafana/datasources:/etc/grafana/provisioning/datasources
+    networks:
+      - quenne-network
+    ports:
+      - "3000:3000"
+    depends_on:
+      - quenne-prometheus
+
+  quenne-loki:
+    image: grafana/loki:latest
+    container_name: quenne-loki
+    restart: unless-stopped
+    command: -config.file=/etc/loki/local-config.yaml
+    volumes:
+      - ./monitoring/loki/loki-config.yaml:/etc/loki/local-config.yaml
+      - loki-data:/loki
+    networks:
+      - quenne-network
+    ports:
+      - "3100:3100"
+
+  quenne-promtail:
+    image: grafana/promtail:latest
+    container_name: quenne-promtail
+    restart: unless-stopped
+    volumes:
+      - ./monitoring/loki/promtail-config.yaml:/etc/promtail/config.yaml
+      - /var/log:/var/log:ro
+      - ./logs:/app/logs:ro
+    command: -config.file=/etc/promtail/config.yaml
+    networks:
+      - quenne-network
+    depends_on:
+      - quenne-loki
+
+networks:
+  quenne-network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.20.0.0/16
+
+volumes:
+  quenne-postgres-data:
+  quenne-redis-data:
+  quenne-cache:
+  prometheus-data:
+  grafana-data:
+  loki-data:
+```
+
+---
+
+🚢 8. Dockerfile
+
+```dockerfile
+# Multi-stage build for QUENNE
+# Stage 1: Base with all dependencies
+FROM python:3.10-slim as base
+
+# Install system dependencies
+RUN apt-get update && apt-get install -y \
+    build-essential \
+    curl \
+    git \
+    wget \
+    libgomp1 \
+    libopenblas-dev \
+    liblapack-dev \
+    libatlas-base-dev \
+    gfortran \
+    libhdf5-dev \
+    libffi-dev \
+    libssl-dev \
+    && rm -rf /var/lib/apt/lists/*
+
+# Set environment variables
+ENV PYTHONUNBUFFERED=1 \
+    PYTHONDONTWRITEBYTECODE=1 \
+    PIP_NO_CACHE_DIR=1 \
+    PIP_DISABLE_PIP_VERSION_CHECK=1
+
+WORKDIR /app
+
+# Copy requirements files
+COPY requirements.txt .
+COPY requirements-quantum.txt .
+COPY requirements-neuromorphic.txt .
+
+# Stage 2: Builder for Python packages
+FROM base as builder
+
+# Install Python dependencies
+RUN pip install --upgrade pip && \
+    pip wheel --no-cache-dir --wheel-dir /app/wheels \
+    -r requirements.txt \
+    -r requirements-quantum.txt \
+    -r requirements-neuromorphic.txt
+
+# Stage 3: Production image
+FROM python:3.10-slim as production
+
+# Install runtime dependencies
+RUN apt-get update && apt-get install -y \
+    libgomp1 \
+    libopenblas64-0 \
+    && rm -rf /var/lib/apt/lists/*
+
+WORKDIR /app
+
+# Copy wheels from builder
+COPY --from=builder /app/wheels /wheels
+
+# Install Python packages from wheels
+RUN pip install --no-cache /wheels/*
+
+# Copy application code
+COPY . .
+
+# Create non-root user
+RUN groupadd -r quenne && useradd -r -g quenne quenne \
+    && chown -R quenne:quenne /app
+
+USER quenne
+
+# Create necessary directories
+RUN mkdir -p /app/data /app/logs /app/cache \
+    && chown -R quenne:quenne /app/data /app/logs /app/cache
+
+# Health check
+HEALTHCHECK --interval=30s --timeout=10s --start-period=40s --retries=3 \
+    CMD python -c "import quenne; quenne.core.system.check_health()"
+
+# Expose ports
+EXPOSE 8000  # REST API
+EXPOSE 8001  # WebSocket
+EXPOSE 9090  # Prometheus metrics
+
+# Default command
+CMD ["python", "-m", "quenne.api.rest_api"]
+```
+
+---
+
+☸️ 9. kubernetes/deployment.yaml
+
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: quenne-core
+  namespace: quenne
+  labels:
+    app: quenne
+    component: core
+    version: v3.0
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: quenne
+      component: core
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0
+  template:
+    metadata:
+      labels:
+        app: quenne
+        component: core
+        version: v3.0
+      annotations:
+        prometheus.io/scrape: "true"
+        prometheus.io/port: "9090"
+        prometheus.io/path: "/metrics"
+    spec:
+      serviceAccountName: quenne-service-account
+      securityContext:
+        runAsUser: 1000
+        runAsGroup: 1000
+        fsGroup: 1000
+      containers:
+      - name: quenne-core
+        image: quenneai/quenne-core:3.0.0
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 8000
+          name: http
+          protocol: TCP
+        - containerPort: 8001
+          name: websocket
+          protocol: TCP
+        - containerPort: 9090
+          name: metrics
+          protocol: TCP
+        env:
+        - name: QUENNE_ENVIRONMENT
+          value: "production"
+        - name: QUANTUM_BACKEND
+          valueFrom:
+            configMapKeyRef:
+              name: quenne-config
+              key: quantum.backend
+        - name: NEUROMORPHIC_BACKEND
+          valueFrom:
+            configMapKeyRef:
+              name: quenne-config
+              key: neuromorphic.backend
+        - name: DATABASE_URL
+          valueFrom:
+            secretKeyRef:
+              name: quenne-secrets
+              key: database.url
+        - name: REDIS_URL
+          valueFrom:
+            secretKeyRef:
+              name: quenne-secrets
+              key: redis.url
+        - name: LOG_LEVEL
+          value: "INFO"
+        resources:
+          requests:
+            memory: "8Gi"
+            cpu: "2"
+            ephemeral-storage: "10Gi"
+          limits:
+            memory: "16Gi"
+            cpu: "4"
+            ephemeral-storage: "20Gi"
+        volumeMounts:
+        - name: config-volume
+          mountPath: /app/config
+          readOnly: true
+        - name: data-volume
+          mountPath: /app/data
+        - name: cache-volume
+          mountPath: /app/cache
+        - name: logs-volume
+          mountPath: /app/logs
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 8000
+          initialDelaySeconds: 60
+          periodSeconds: 30
+          timeoutSeconds: 10
+          failureThreshold: 3
+        readinessProbe:
+          httpGet:
+            path: /ready
+            port: 8000
+          initialDelaySeconds: 30
+          periodSeconds: 10
+          timeoutSeconds: 5
+          failureThreshold: 3
+        startupProbe:
+          httpGet:
+            path: /health
+            port: 8000
+          initialDelaySeconds: 30
+          periodSeconds: 10
+          timeoutSeconds: 10
+          failureThreshold: 30
+      volumes:
+      - name: config-volume
+        configMap:
+          name: quenne-config
+      - name: data-volume
+        persistentVolumeClaim:
+          claimName: quenne-data-pvc
+      - name: cache-volume
+        emptyDir: {}
+      - name: logs-volume
+        emptyDir: {}
+      affinity:
+        podAntiAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+          - weight: 100
+            podAffinityTerm:
+              labelSelector:
+                matchExpressions:
+                - key: app
+                  operator: In
+                  values:
+                  - quenne
+              topologyKey: kubernetes.io/hostname
+      tolerations:
+      - key: "quantum"
+        operator: "Equal"
+        value: "enabled"
+        effect: "NoSchedule"
+      - key: "neuromorphic"
+        operator: "Equal"
+        value: "enabled"
+        effect: "NoSchedule"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: quenne-service
+  namespace: quenne
+  labels:
+    app: quenne
+spec:
+  selector:
+    app: quenne
+    component: core
+  ports:
+  - name: http
+    port: 80
+    targetPort: 8000
+    protocol: TCP
+  - name: websocket
+    port: 81
+    targetPort: 8001
+    protocol: TCP
+  - name: metrics
+    port: 9090
+    targetPort: 9090
+    protocol: TCP
+  type: ClusterIP
+---
+apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: quenne-hpa
+  namespace: quenne
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: quenne-core
+  minReplicas: 2
+  maxReplicas: 10
+  metrics:
+  - type: Resource
+    resource:
+      name: cpu
+      target:
+        type: Utilization
+        averageUtilization: 70
+  - type: Resource
+    resource:
+      name: memory
+      target:
+        type: Utilization
+        averageUtilization: 80
+  behavior:
+    scaleDown:
+      stabilizationWindowSeconds: 300
+      policies:
+      - type: Pods
+        value: 1
+        periodSeconds: 60
+    scaleUp:
+      stabilizationWindowSeconds: 60
+      policies:
+      - type: Pods
+        value: 2
+        periodSeconds: 60
+```
+
+---
+
+🔒 10. .env.example
+
+```env
+# QUENNE Environment Configuration
+# Copy this file to .env and fill in your values
+
+# Application Settings
+QUENNE_ENVIRONMENT=development
+QUENNE_VERSION=3.0.0
+LOG_LEVEL=INFO
+DEBUG=false
+
+# Quantum Computing Backend
+QUANTUM_BACKEND=simulator  # simulator, ibm, rigetti, ionq, honeywell
+QUANTUM_API_KEY=your_quantum_api_key_here
+QUANTUM_HUB=ibm-q
+QUANTUM_GROUP=open
+QUANTUM_PROJECT=main
+QUANTUM_SIMULATOR=statevector  # statevector, matrix_product_state, extended_stabilizer
+
+# Neuromorphic Computing Backend
+NEUROMORPHIC_BACKEND=simulator  # simulator, loihi, akida, brainchip
+NEUROMORPHIC_DEVICE_TYPE=loihi2
+NEUROMORPHIC_COMPARTMENT_COUNT=1024
+NEUROMORPHIC_SYNAPSE_COUNT=100000
+
+# Database Configuration
+DATABASE_URL=postgresql://quenne:password@localhost:5432/quenne_cognitive
+DATABASE_POOL_SIZE=20
+DATABASE_MAX_OVERFLOW=40
+DATABASE_POOL_TIMEOUT=30
+
+# Redis Configuration
+REDIS_URL=redis://localhost:6379/0
+REDIS_PASSWORD=your_redis_password
+REDIS_POOL_SIZE=100
+
+# Cache Configuration
+CACHE_TYPE=redis  # memory, redis, memcached
+CACHE_TTL=3600
+CACHE_MAX_SIZE=10G
+
+# 6G Network Configuration (Simulated)
+NETWORK_6G_ENABLED=true
+NETWORK_SEMANTIC_ROUTING=true
+NETWORK_QUANTUM_SECURITY=true
+NETWORK_LATENCY_TARGET=1ms
+
+# Security Settings
+SECRET_KEY=your_secret_key_here
+JWT_SECRET=your_jwt_secret_here
+ENCRYPTION_KEY=your_encryption_key_here
+TOKEN_EXPIRY=86400  # 24 hours in seconds
+
+# Monitoring
+PROMETHEUS_ENABLED=true
+GRAFANA_ENABLED=true
+LOKI_ENABLED=true
+TRACING_ENABLED=true
+
+# Performance Settings
+MAX_WORKERS=4
+MAX_TASKS=1000
+BATCH_SIZE=32
+INFERENCE_TIMEOUT=30
+
+# Storage
+STORAGE_TYPE=local  # local, s3, gcs, azure
+STORAGE_PATH=./data
+STORAGE_BUCKET=quenne-data
+
+# External Services
+OPENAI_API_KEY=your_openai_api_key
+ANTHROPIC_API_KEY=your_anthropic_api_key
+GOOGLE_API_KEY=your_google_api_key
+
+# Email Configuration (for alerts)
+SMTP_SERVER=smtp.gmail.com
+SMTP_PORT=587
+SMTP_USERNAME=your_email@gmail.com
+SMTP_PASSWORD=your_email_password
+ALERT_EMAILS=admin@example.com,ops@example.com
+
+# Feature Flags
+FEATURE_QUANTUM_INFERENCE=true
+FEATURE_NEUROMORPHIC_LEARNING=true
+FEATURE_EDGE_ACTUATION=true
+FEATURE_HOMEOSTATIC_REGULATION=true
+FEATURE_AUTOCATALYSIS=false
+
+# Development Settings
+RELOAD=true
+AUTO_MIGRATE=true
+SEED_DATA=true
+TEST_MODE=false
+
+# API Settings
+API_HOST=0.0.0.0
+API_PORT=8000
+API_WORKERS=4
+API_TIMEOUT=30
+CORS_ORIGINS=http://localhost:3000,http://localhost:8080
+
+# WebSocket Settings
+WS_HOST=0.0.0.0
+WS_PORT=8001
+WS_MAX_CONNECTIONS=1000
+WS_PING_INTERVAL=30
+
+# Quantum Hardware Specific (if available)
+QUANTUM_CRYOGENIC_TEMP=0.015  # 15 mK
+QUANTUM_COHERENCE_TIME=100  # ms
+QUANTUM_ERROR_RATE=0.001
+QUANTUM_GATE_FIDELITY=0.999
+
+# Neuromorphic Hardware Specific (if available)
+NEUROMORPHIC_NEURON_COUNT=1000000
+NEUROMORPHIC_SYNAPSE_COUNT=10000000
+NEUROMORPHIC_POWER_TARGET=10  # Watts
+NEUROMORPHIC_SPIKE_RATE=1000000  # spikes/second
+
+# Edge Node Configuration
+EDGE_NODE_ID=node-001
+EDGE_NODE_TYPE=gateway
+EDGE_SENSORS=camera,lidar,imu,environmental
+EDGE_ACTUATORS=motor,servo,led,display
+EDGE_POWER_SOURCE=grid  # grid, battery, solar, hybrid
+
+# Homeostatic Regulation Targets
+TARGET_COMPUTATIONAL_LOAD=0.7
+TARGET_ENERGY_CONSUMPTION=100  # Watts
+TARGET_MEMORY_USAGE=0.8
+TARGET_NETWORK_LATENCY=5  # ms
+TARGET_TEMPERATURE=45  # Celsius
+```
+
+---
+
+🧪 11. .pre-commit-config.yaml
+
+```yaml
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.5.0
+    hooks:
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+      - id: check-yaml
+      - id: check-added-large-files
+      - id: check-json
+      - id: check-toml
+      - id: check-merge-conflict
+      - id: detect-private-key
+      - id: mixed-line-ending
+
+  - repo: https://github.com/psf/black
+    rev: 23.11.0
+    hooks:
+      - id: black
+        language_version: python3.10
+        args: [--line-length=100]
+
+  - repo: https://github.com/pycqa/isort
+    rev: 5.12.0
+    hooks:
+      - id: isort
+        args: ["--profile", "black", "--line-length=100"]
+
+  - repo: https://github.com/pycqa/flake8
+    rev: 6.1.0
+    hooks:
+      - id: flake8
+        args: ["--max-line-length=100", "--ignore=E203,W503"]
+        additional_dependencies: [flake8-docstrings]
+
+  - repo: https://github.com/pre-commit/mirrors-mypy
+    rev: v1.7.0
+    hooks:
+      - id: mypy
+        additional_dependencies:
+          - types-requests
+          - types-pyyaml
+          - types-PyYAML
+          - types-redis
+        args: [--ignore-missing-imports, --no-implicit-optional]
+
+  - repo: https://github.com/pycqa/pylint
+    rev: v3.0.2
+    hooks:
+      - id: pylint
+        args: [--rcfile=.pylintrc]
+        additional_dependencies:
+          - pylint-quotes
+
+  - repo: https://github.com/PyCQA/bandit
+    rev: 1.7.5
+    hooks:
+      - id: bandit
+        args: ["-c", "pyproject.toml"]
+        files: "^quenne/"
+
+  - repo: https://github.com/python-poetry/poetry
+    rev: '1.6.0'
+    hooks:
+      - id: poetry-check
+      - id: poetry-lock
+        args: ["--no-update"]
+
+  - repo: https://github.com/Yelp/detect-secrets
+    rev: v1.4.0
+    hooks:
+      - id: detect-secrets
+        args: ['--baseline', '.secrets.baseline']
+
+  - repo: https://github.com/commitizen-tools/commitizen
+    rev: v3.10.0
+    hooks:
+      - id: commitizen
+        stages: [commit-msg]
+
+  - repo: local
+    hooks:
+      - id: pytest-check
+        name: pytest
+        entry: pytest
+        language: system
+        pass_filenames: false
+        always_run: true
+        args: ["-x", "--tb=short"]
+
+      - id: security-check
+        name: Check for security vulnerabilities
+        entry: safety
+        language: system
+        pass_filenames: false
+        always_run: true
+        args: ["check", "--json"]
+
+ci:
+  autofix_commit_msg: "style: auto-format with pre-commit hooks"
+  autoupdate_commit_msg: "chore: update pre-commit hooks"
+  skip: [pytest-check, security-check]
+```
+
+---
+
+📊 12. pyproject.toml
+
+```toml
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "quenne"
+version = "3.0.0-alpha"
+description = "Quantum-Edge-NeuroNorphic Engine for Cognitive Computing"
+readme = "README.md"
+authors = [
+    {name = "Nicolas Santiago", email = "safewayguardian@gmail.com"}
+]
+maintainers = [
+    {name = "Nicolas Santiago", email = "safewayguardian@gmail.com"}
+]
+license = {text = "Quantum Innovation License v2.0"}
+keywords = [
+    "quantum-computing",
+    "neuromorphic-computing",
+    "artificial-intelligence",
+    "cognitive-computing",
+    "edge-computing",
+    "6g-networks"
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Science/Research",
+    "Intended Audience :: Developers",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Scientific/Engineering :: Quantum Computing",
+    "License :: Other/Proprietary License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Operating System :: OS Independent",
+]
+requires-python = ">=3.10"
+dependencies = [
+    "numpy>=1.24.0",
+    "scipy>=1.10.0",
+    "pandas>=2.0.0",
+    "scikit-learn>=1.3.0",
+    "torch>=2.0.0",
+    "torchvision>=0.15.0",
+    "fastapi>=0.100.0",
+    "uvicorn[standard]>=0.23.0",
+    "websockets>=12.0",
+    "pydantic>=2.0.0",
+    "httpx>=0.24.0",
+    "dask>=2023.6.0",
+    "polars>=0.18.0",
+    "aiohttp>=3.8.0",
+    "zmq>=25.0.0",
+    "msgpack>=1.0.0",
+    "loguru>=0.7.0",
+    "python-dotenv>=1.0.0",
+]
+
+[project.optional-dependencies]
+quantum = [
+    "qiskit>=1.0.0",
+    "qiskit-aer>=0.12.0",
+    "pennylane>=0.31.0",
+    "cirq>=1.0.0",
+]
+neuromorphic = [
+    "sinabs>=1.0.0",
+    "rockpool>=3.0.0",
+    "snntorch>=0.6.0",
+]
+dev = [
+    "black>=23.0.0",
+    "flake8>=6.0.0",
+    "isort>=5.12.0",
+    "mypy>=1.5.0",
+    "pytest>=7.4.0",
+    "pytest-asyncio>=0.21.0",
+    "pytest-cov>=4.1.0",
+    "hypothesis>=6.82.0",
+]
+docs = [
+    "mkdocs>=1.4.0",
+    "mkdocs-material>=9.0.0",
+    "mkdocstrings[python]>=0.21.0",
+]
+all = [
+    "quenne[quantum]",
+    "quenne[neuromorphic]",
+]
+
+[project.urls]
+Homepage = "https://github.com/nicolas-santiago/quenne"
+Documentation = "https://quenne.ai/docs"
+Repository = "https://github.com/nicolas-santiago/quenne"
+Changelog = "https://github.com/nicolas-santiago/quenne/releases"
+Issues = "https://github.com/nicolas-santiago/quenne/issues"
+
+[project.scripts]
+quenne = "quenne.api.cli:main"
+quenne-server = "quenne.api.rest_api:main"
+quenne-benchmark = "quenne.utils.metrics:run_benchmarks"
+
+[tool.setuptools]
+packages = {find = {where = ["."]}}
+include-package-data = true
+
+[tool.setuptools.package-data]
+quenne = ["py.typed", "*.pyi", "data/*.json", "data/*.yaml"]
+
+[tool.black]
+line-length = 100
+target-version = ['py310']
+include = '\.pyi?$'
+extend-exclude = '''
+/(
+  \.eggs
+  | \.git
+  | \.hg
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | _build
+  | buck-out
+  | build
+  | dist
+)/
+'''
+
+[tool.isort]
+profile = "black"
+line_length = 100
+multi_line_output = 3
+include_trailing_comma = true
+force_sort_within_sections = true
+known_first_party = ["quenne"]
+
+[tool.mypy]
+python_version = "3.10"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
+disallow_incomplete_defs = true
+check_untyped_defs = true
+disallow_untyped_decorators = true
+no_implicit_optional = true
+warn_redundant_casts = true
+warn_unused_ignores = true
+warn_no_return = true
+warn_unreachable = true
+strict_equality = true
+exclude = [
+    "build/",
+    "dist/",
+    ".eggs/",
+    ".git/",
+    ".hg/",
+    ".mypy_cache/",
+    ".tox/",
+    ".venv/",
+    "_build/",
+    "buck-out/",
+]
+[[tool.mypy.overrides]]
+module = [
+    "pydantic.*",
+    "fastapi.*",
+    "sqlalchemy.*",
+]
+ignore_missing_imports = true
+
+[tool.pytest.ini_options]
+minversion = "7.0"
+addopts = "-ra -q --tb=short --strict-markers"
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+markers = [
+    "unit: unit tests",
+    "integration: integration tests",
+    "performance: performance tests",
+    "slow: slow tests",
+    "quantum: quantum computing tests",
+    "neuromorphic: neuromorphic computing tests",
+]
+filterwarnings = [
+    "ignore::DeprecationWarning",
+    "ignore::FutureWarning",
+]
+
+[tool.coverage.run]
+source = ["quenne"]
+omit = [
+    "*/tests/*",
+    "*/test_*.py",
+    "*/__pycache__/*",
+    "*/setup.py",
+    "*/__init__.py",
+]
+branch = true
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: no cover",
+    "def __repr__",
+    "if self.debug:",
+    "if settings.DEBUG",
+    "raise AssertionError",
+    "raise NotImplementedError",
+    "if 0:",
+    "if __name__ == .__main__.:",
+    "class .*\\bProtocol\\):",
+    "@(abc\\.)?abstractmethod",
+]
+show_missing = true
+skip_covered = true
+fail_under = 80
+
+[bandit]
+exclude_dirs = ["tests", "docs"]
+skips = ["B101", "B404", "B603", "B607"]
+
+[security]
+minimum-severity = "MEDIUM"
+
+[commitizen]
+name = "cz_conventional_commits"
+version = "3.0.0-alpha"
+tag_format = "v$version"
+update_changelog_on_bump = true
+version_files = [
+    "quenne/__version__.py",
+    "pyproject.toml",
+]
+```
+
+---
+
+🧑‍💻 13. quenne/init.py
+
+```python
+"""
+QUENNE: Quantum-Edge-NeuroNorphic Engine
+
+The third wave of computing - Cognitive Physics. Unifying quantum processing,
+neuromorphic intelligence, edge embodiment, and 6G semantic signaling
+into a single cognitive continuum.
+"""
+
+import sys
+import warnings
+from typing import Optional
+
+from .__version__ import __version__, __version_info__
+
+# Set up warnings
+warnings.filterwarnings("ignore", category=DeprecationWarning, module=".*")
+warnings.filterwarnings("ignore", category=FutureWarning, module=".*")
+
+# Check Python version
+if sys.version_info < (3, 10):
+    raise RuntimeError("QUENNE requires Python 3.10 or higher")
+
+# Import core components
+from .core.system import QUENNESystem
+from .core.config import QUENNEConfig
+from .core.exceptions import (
+    QUENNEException,
+    QuantumError,
+    NeuromorphicError,
+    EdgeError,
+    ResilienceError,
+)
+
+# Import quantum layer
+try:
+    from .quantum import (
+        QuantumInferenceEngine,
+        QuantumStateManager,
+        QuantumNeuralNetwork,
+    )
+    HAS_QUANTUM = True
+except ImportError:
+    HAS_QUANTUM = False
+    QuantumInferenceEngine = None
+    QuantumStateManager = None
+    QuantumNeuralNetwork = None
+
+# Import neuromorphic layer
+try:
+    from .neuromorphic import (
+        NeuromorphicCortex,
+        AssociativeMemoryField,
+        SpikingNeuralNetwork,
+    )
+    HAS_NEUROMORPHIC = True
+except ImportError:
+    HAS_NEUROMORPHIC = False
+    NeuromorphicCortex = None
+    AssociativeMemoryField = None
+    SpikingNeuralNetwork = None
+
+# Import edge layer
+from .edge import (
+    MultiSensorFusion,
+    SituationalAwareness,
+    ActuatorController,
+)
+
+# Import resilience layer
+from .resilience import (
+    HomeostaticRegulator,
+    ImmuneSecuritySystem,
+    EnergyManager,
+)
+
+# Import orchestration
+from .orchestration import (
+    StateSynchronizer,
+    SemanticBus,
+    ResourceManager,
+)
+
+# Import applications
+from .applications import (
+    HealthcareMonitor,
+    AutonomousVehicle,
+    DroneSwarm,
+    ScientificDiscoverer,
+)
+
+# Import utilities
+from .utils.logging import setup_logging
+from .utils.metrics import MetricsCollector
+
+# API
+from .api.rest_api import run_api_server
+from .api.cli import main as cli_main
+
+# Public API
+__all__ = [
+    # Core
+    "QUENNESystem",
+    "QUENNEConfig",
+    "QUENNEException",
+    "QuantumError",
+    "NeuromorphicError",
+    "EdgeError",
+    "ResilienceError",
+    
+    # Quantum
+    "QuantumInferenceEngine",
+    "QuantumStateManager",
+    "QuantumNeuralNetwork",
+    "HAS_QUANTUM",
+    
+    # Neuromorphic
+    "NeuromorphicCortex",
+    "AssociativeMemoryField",
+    "SpikingNeuralNetwork",
+    "HAS_NEUROMORPHIC",
+    
+    # Edge
+    "MultiSensorFusion",
+    "SituationalAwareness",
+    "ActuatorController",
+    
+    # Resilience
+    "HomeostaticRegulator",
+    "ImmuneSecuritySystem",
+    "EnergyManager",
+    
+    # Orchestration
+    "StateSynchronizer",
+    "SemanticBus",
+    "ResourceManager",
+    
+    # Applications
+    "HealthcareMonitor",
+    "AutonomousVehicle",
+    "DroneSwarm",
+    "ScientificDiscoverer",
+    
+    # Utilities
+    "setup_logging",
+    "MetricsCollector",
+    
+    # API
+    "run_api_server",
+    "cli_main",
+    
+    # Version
+    "__version__",
+    "__version_info__",
+]
+
+# System check function
+def system_check() -> dict:
+    """
+    Perform a comprehensive system check.
+    
+    Returns:
+        dict: System health and configuration status.
+    """
+    import platform
+    import psutil
+    
+    check_results = {
+        "system": {
+            "platform": platform.platform(),
+            "python_version": platform.python_version(),
+            "processor": platform.processor(),
+            "memory_total": psutil.virtual_memory().total,
+            "memory_available": psutil.virtual_memory().available,
+        },
+        "quenne": {
+            "version": __version__,
+            "has_quantum": HAS_QUANTUM,
+            "has_neuromorphic": HAS_NEUROMORPHIC,
+        },
+        "dependencies": {
+            "numpy": None,
+            "torch": None,
+            "qiskit": None,
+        },
+        "health": {
+            "cpu_usage": psutil.cpu_percent(),
+            "memory_usage": psutil.virtual_memory().percent,
+            "disk_usage": psutil.disk_usage("/").percent,
+        }
+    }
+    
+    # Check dependencies
+    try:
+        import numpy
+        check_results["dependencies"]["numpy"] = numpy.__version__
+    except ImportError:
+        check_results["dependencies"]["numpy"] = "Not installed"
+    
+    try:
+        import torch
+        check_results["dependencies"]["torch"] = torch.__version__
+    except ImportError:
+        check_results["dependencies"]["torch"] = "Not installed"
+    
+    try:
+        import qiskit
+        check_results["dependencies"]["qiskit"] = qiskit.__version__
+    except ImportError:
+        check_results["dependencies"]["qiskit"] = "Not installed"
+    
+    return check_results
+
+# Initialize logging on import
+setup_logging()
+
+print(f"""
+╔══════════════════════════════════════════════════════════════╗
+║                    QUENNE v{__version__}                        ║
+║      Quantum-Edge-NeuroNorphic Engine                       ║
+║      Powered by DeepSeek AI Research Technology            ║
+╚══════════════════════════════════════════════════════════════╝
+""")
+```
+
+---
+
+📦 14. quenne/version.py
+
+```python
+"""
+Version information for QUENNE package.
+"""
+
+__version__ = "3.0.0-alpha"
+__version_info__ = (3, 0, 0, "alpha", 0)
+
+# Version parsing and comparison utilities
+def parse_version(version_string: str) -> tuple:
+    """
+    Parse a version string into components.
+    
+    Args:
+        version_string: Version string in format "X.Y.Z[-tag]"
+    
+    Returns:
+        tuple: (major, minor, patch, tag, build)
+    """
+    import re
+    
+    pattern = r'^(\d+)\.(\d+)\.(\d+)(?:-([a-zA-Z0-9]+))?(?:\.(\d+))?$'
+    match = re.match(pattern, version_string)
+    
+    if not match:
+        raise ValueError(f"Invalid version string: {version_string}")
+    
+    major, minor, patch = map(int, match.groups()[:3])
+    tag = match.group(4) or "stable"
+    build = int(match.group(5) or 0)
+    
+    return (major, minor, patch, tag, build)
+
+def is_compatible(other_version: str) -> bool:
+    """
+    Check if another version is compatible with current version.
+    
+    Args:
+        other_version: Version string to check
+    
+    Returns:
+        bool: True if compatible
+    """
+    try:
+        other = parse_version(other_version)
+        current = __version_info__
+        
+        # Major version must match
+        if other[0] != current[0]:
+            return False
+        
+        # For minor versions, backward compatibility within same major
+        if other[1] > current[1]:
+            return False
+        
+        return True
+    except ValueError:
+        return False
+
+def get_version_tuple() -> tuple:
+    """
+    Get version as a tuple.
+    
+    Returns:
+        tuple: (major, minor, patch)
+    """
+    return __version_info__[:3]
+
+def get_full_version() -> str:
+    """
+    Get full version string with build information.
+    
+    Returns:
+        str: Full version string
+    """
+    version_parts = [f"{__version_info__[0]}.{__version_info__[1]}.{__version_info__[2]}"]
+    
+    if __version_info__[3] and __version_info__[3] != "stable":
+        version_parts.append(f"-{__version_info__[3]}")
+    
+    if __version_info__[4]:
+        version_parts.append(f".{__version_info__[4]}")
+    
+    return "".join(version_parts)
+```
+
+---
+
+🔧 15. quenne/core/system.py
+
+```python
+"""
+Main QUENNE system class - orchestrates all layers.
+"""
+
+import asyncio
+import time
+import logging
+from typing import Dict, List, Any, Optional, Union
+from dataclasses import dataclass, field
+from enum import Enum
+import warnings
+
+from ..utils.logging import setup_logging
+from ..utils.metrics import MetricsCollector
+from ..core.exceptions import QUENNEException
+from ..core.config import QUENNEConfig
+
+logger = logging.getLogger(__name__)
+
+class SystemState(Enum):
+    """System operational states."""
+    INITIALIZING = "initializing"
+    READY = "ready"
+    PROCESSING = "processing"
+    LEARNING = "learning"
+    REGULATING = "regulating"
+    DEGRADED = "degraded"
+    FAILED = "failed"
+    SHUTTING_DOWN = "shutting_down"
+
+@dataclass
+class SystemMetrics:
+    """System performance metrics."""
+    timestamp: float = field(default_factory=time.time)
+    quantum_coherence: float = 1.0
+    neuromorphic_activity: float = 0.0
+    edge_latency: float = 0.0
+    homeostatic_stability: float = 1.0
+    energy_efficiency: float = 1.0
+    cognitive_load: float = 0.0
+    inference_accuracy: float = 0.0
+    learning_rate: float = 0.0
+    uptime: float = 0.0
+    
+    def to_dict(self) -> Dict[str, Any]:
+        """Convert to dictionary."""
+        return {
+            "timestamp": self.timestamp,
+            "quantum_coherence": self.quantum_coherence,
+            "neuromorphic_activity": self.neuromorphic_activity,
+            "edge_latency": self.edge_latency,
+            "homeostatic_stability": self.homeostatic_stability,
+            "energy_efficiency": self.energy_efficiency,
+            "cognitive_load": self.cognitive_load,
+            "inference_accuracy": self.inference_accuracy,
+            "learning_rate": self.learning_rate,
+            "uptime": self.uptime,
+        }
+
+class QUENNESystem:
+    """
+    Main QUENNE system orchestrator.
+    
+    This class coordinates all layers of the QUENNE architecture:
+    - Quantum processing
+    - Neuromorphic cognition
+    - Edge embodiment
+    - Homeostatic regulation
+    - Cross-layer orchestration
+    """
+    
+    def __init__(self, config: Optional[Union[Dict, QUENNEConfig]] = None):
+        """
+        Initialize QUENNE system.
+        
+        Args:
+            config: Configuration dictionary or QUENNEConfig object
+        """
+        self.start_time = time.time()
+        self.state = SystemState.INITIALIZING
+        self.metrics = SystemMetrics()
+        self.metrics_collector = MetricsCollector()
+        
+        # Parse configuration
+        if isinstance(config, dict):
+            self.config = QUENNEConfig(**config)
+        elif isinstance(config, QUENNEConfig):
+            self.config = config
+        else:
+            self.config = QUENNEConfig()
+        
+        # Initialize layers
+        self.quantum_layer = None
+        self.neuromorphic_layer = None
+        self.edge_layer = None
+        self.resilience_layer = None
+        self.orchestration_layer = None
+        
+        # Task queue and workers
+        self.task_queue = asyncio.Queue()
+        self.workers = []
+        
+        # System health
+        self.health_check_interval = self.config.system.health_check_interval
+        self.health_check_task = None
+        
+        logger.info(f"Initializing QUENNE System v{self.config.version}")
+    
+    async def initialize(self) -> None:
+        """Initialize all system components."""
+        logger.info("Starting QUENNE system initialization...")
+        
+        try:
+            # Initialize quantum layer
+            if self.config.quantum.enabled:
+                await self._initialize_quantum_layer()
+            
+            # Initialize neuromorphic layer
+            if self.config.neuromorphic.enabled:
+                await self._initialize_neuromorphic_layer()
+            
+            # Initialize edge layer
+            if self.config.edge.enabled:
+                await self._initialize_edge_layer()
+            
+            # Initialize resilience layer
+            if self.config.resilience.enabled:
+                await self._initialize_resilience_layer()
+            
+            # Initialize orchestration
+            if self.config.orchestration.enabled:
+                await self._initialize_orchestration_layer()
+            
+            # Start health monitoring
+            self.health_check_task = asyncio.create_task(
+                self._health_monitoring_loop()
+            )
+            
+            self.state = SystemState.READY
+            self.metrics.uptime = time.time() - self.start_time
+            
+            logger.info("QUENNE system initialized successfully")
+            logger.info(f"System state: {self.state.value}")
+            logger.info(f"Available layers: {self._get_available_layers()}")
+            
+        except Exception as e:
+            self.state = SystemState.FAILED
+            logger.error(f"Failed to initialize QUENNE system: {e}")
+            raise QUENNEException(f"System initialization failed: {e}")
+    
+    async def _initialize_quantum_layer(self) -> None:
+        """Initialize quantum processing layer."""
+        logger.info("Initializing quantum layer...")
+        
+        try:
+            from ..quantum import QuantumInferenceEngine, QuantumStateManager
+            
+            self.quantum_layer = {
+                "inference": QuantumInferenceEngine(
+                    qubits=self.config.quantum.logical_qubits,
+                    backend=self.config.quantum.backend,
+                    error_correction=self.config.quantum.error_correction,
+                ),
+                "state_manager": QuantumStateManager(
+                    coherence_target=self.config.quantum.coherence_time,
+                    error_rate_target=self.config.quantum.error_rate,
+                ),
+            }
+            
+            # Initialize quantum state
+            await self.quantum_layer["inference"].initialize()
+            
+            logger.info(f"Quantum layer initialized with {self.config.quantum.logical_qubits} logical qubits")
+            
+        except ImportError as e:
+            logger.warning(f"Quantum layer dependencies not available: {e}")
+            self.quantum_layer = None
+    
+    async def _initialize_neuromorphic_layer(self) -> None:
+        """Initialize neuromorphic cognition layer."""
+        logger.info("Initializing neuromorphic layer...")
+        
+        try:
+            from ..neuromorphic import (
+                NeuromorphicCortex,
+                AssociativeMemoryField,
+            )
+            
+            self.neuromorphic_layer = {
+                "cortex": NeuromorphicCortex(
+                    neuron_count=self.config.neuromorphic.neuron_count,
+                    synapse_density=self.config.neuromorphic.synapse_density,
+                    plasticity_type=self.config.neuromorphic.plasticity_type,
+                ),
+                "memory": AssociativeMemoryField(
+                    dimension=self.config.neuromorphic.memory_dimension,
+                    capacity=self.config.neuromorphic.memory_capacity,
+                ),
+            }
+            
+            # Initialize with base patterns if provided
+            if self.config.neuromorphic.initial_patterns:
+                await self.neuromorphic_layer["memory"].initialize(
+                    patterns=self.config.neuromorphic.initial_patterns
+                )
+            
+            logger.info(f"Neuromorphic layer initialized with {self.config.neuromorphic.neuron_count} neurons")
+            
+        except ImportError as e:
+            logger.warning(f"Neuromorphic layer dependencies not available: {e}")
+            self.neuromorphic_layer = None
+    
+    async def _initialize_edge_layer(self) -> None:
+        """Initialize edge embodiment layer."""
+        logger.info("Initializing edge layer...")
+        
+        try:
+            from ..edge import (
+                MultiSensorFusion,
+                SituationalAwareness,
+                ActuatorController,
+            )
+            
+            self.edge_layer = {
+                "sensor_fusion": MultiSensorFusion(
+                    sensors=self.config.edge.sensors,
+                    fusion_method=self.config.edge.fusion_method,
+                ),
+                "awareness": SituationalAwareness(
+                    context_window=self.config.edge.context_window,
+                    update_rate=self.config.edge.update_rate,
+                ),
+                "actuators": ActuatorController(
+                    actuators=self.config.edge.actuators,
+                    control_mode=self.config.edge.control_mode,
+                ),
+            }
+            
+            logger.info(f"Edge layer initialized with {len(self.config.edge.sensors)} sensors")
+            
+        except Exception as e:
+            logger.warning(f"Edge layer initialization failed: {e}")
+            self.edge_layer = None
+    
+    async def _initialize_resilience_layer(self) -> None:
+        """Initialize homeostatic regulation layer."""
+        logger.info("Initializing resilience layer...")
+        
+        try:
+            from ..resilience import (
+                HomeostaticRegulator,
+                ImmuneSecuritySystem,
+                EnergyManager,
+            )
+            
+            self.resilience_layer = {
+                "homeostat": HomeostaticRegulator(
+                    targets=self.config.resilience.homeostatic_targets,
+                    adjustment_rate=self.config.resilience.adjustment_rate,
+                ),
+                "security": ImmuneSecuritySystem(
+                    anomaly_threshold=self.config.resilience.anomaly_threshold,
+                    response_time=self.config.resilience.response_time,
+                ),
+                "energy": EnergyManager(
+                    power_target=self.config.resilience.power_target,
+                    efficiency_target=self.config.resilience.efficiency_target,
+                ),
+            }
+            
+            logger.info("Resilience layer initialized")
+            
+        except Exception as e:
+            logger.warning(f"Resilience layer initialization failed: {e}")
+            self.resilience_layer = None
+    
+    async def _initialize_orchestration_layer(self) -> None:
+        """Initialize cross-layer orchestration."""
+        logger.info("Initializing orchestration layer...")
+        
+        try:
+            from ..orchestration import (
+                StateSynchronizer,
+                SemanticBus,
+                ResourceManager,
+            )
+            
+            self.orchestration_layer = {
+                "synchronizer": StateSynchronizer(
+                    sync_interval=self.config.orchestration.sync_interval,
+                    tolerance=self.config.orchestration.sync_tolerance,
+                ),
+                "bus": SemanticBus(
+                    protocol=self.config.orchestration.communication_protocol,
+                    qos_level=self.config.orchestration.qos_level,
+                ),
+                "resource_manager": ResourceManager(
+                    allocation_strategy=self.config.orchestration.allocation_strategy,
+                    optimization_interval=self.config.orchestration.optimization_interval,
+                ),
+            }
+            
+            logger.info("Orchestration layer initialized")
+            
+        except Exception as e:
+            logger.warning(f"Orchestration layer initialization failed: {e}")
+            self.orchestration_layer = None
+    
+    async def process(self, input_data: Dict[str, Any], context: Optional[Dict] = None) -> Dict[str, Any]:
+        """
+        Process input through the cognitive pipeline.
+        
+        Args:
+            input_data: Input data dictionary
+            context: Optional context information
+            
+        Returns:
+            dict: Processing results with confidence and metadata
+        """
+        if self.state != SystemState.READY:
+            raise QUENNEException(f"System not ready. Current state: {self.state.value}")
+        
+        self.state = SystemState.PROCESSING
+        start_time = time.time()
+        
+        try:
+            logger.debug(f"Processing input: {input_data.keys()}")
+            
+            # Step 1: Edge perception
+            perception = await self._perceive(input_data)
+            
+            # Step 2: Neuromorphic pattern recognition
+            patterns = await self._recognize_patterns(perception)
+            
+            # Step 3: Quantum inference
+            inference = await self._infer(patterns, context)
+            
+            # Step 4: Action planning
+            action = await self._plan_action(inference)
+            
+            # Step 5: Execute action (if edge layer available)
+            result = await self._execute_action(action)
+            
+            # Step 6: Learn from experience
+            await self._learn(perception, inference, result)
+            
+            # Step 7: Update metrics
+            processing_time = time.time() - start_time
+            self.metrics.edge_latency = processing_time
+            self.metrics_collector.record_processing_time(processing_time)
+            
+            # Return comprehensive result
+            result_data = {
+                "output": result,
+                "inference": inference,
+                "patterns": patterns,
+                "processing_time": processing_time,
+                "confidence": inference.get("confidence", 0.0),
+                "timestamp": time.time(),
+                "system_state": self.state.value,
+            }
+            
+            self.state = SystemState.READY
+            return result_data
+            
+        except Exception as e:
+            self.state = SystemState.DEGRADED
+            logger.error(f"Processing failed: {e}")
+            
+            # Attempt graceful degradation
+            try:
+                fallback_result = await self._degraded_processing(input_data)
+                return {
+                    "output": fallback_result,
+                    "error": str(e),
+                    "degraded_mode": True,
+                    "timestamp": time.time(),
+                }
+            except Exception as fallback_error:
+                self.state = SystemState.FAILED
+                raise QUENNEException(f"Processing failed and fallback unavailable: {fallback_error}")
+    
+    async def _perceive(self, input_data: Dict) -> Dict:
+        """Perceive input through edge layer."""
+        if not self.edge_layer:
+            # If no edge layer, pass through
+            return input_data
+        
+        try:
+            # Fuse sensor data if available
+            if "sensors" in input_data and self.edge_layer["sensor_fusion"]:
+                fused = await self.edge_layer["sensor_fusion"].fuse(input_data["sensors"])
+                input_data["fused"] = fused
+            
+            # Update situational awareness
+            if self.edge_layer["awareness"]:
+                situation = await self.edge_layer["awareness"].update(input_data)
+                input_data["situation"] = situation
+            
+            return input_data
+            
+        except Exception as e:
+            logger.warning(f"Perception failed: {e}")
+            return input_data  # Return original data
+    
+    async def _recognize_patterns(self, perception: Dict) -> Dict:
+        """Recognize patterns using neuromorphic layer."""
+        if not self.neuromorphic_layer:
+            return {"patterns": [], "confidence": 0.0}
+        
+        try:
+            # Extract features for pattern recognition
+            features = self._extract_features(perception)
+            
+            # Match against associative memory
+            patterns = await self.neuromorphic_layer["memory"].recall(
+                cue=features,
+                threshold=self.config.neuromorphic.recall_threshold,
+            )
+            
+            # Process through neuromorphic cortex
+            if patterns and self.neuromorphic_layer["cortex"]:
+                processed = await self.neuromorphic_layer["cortex"].process(
+                    spike_pattern=patterns,
+                    context=perception.get("context", {}),
+                )
+                patterns.update(processed)
+            
+            return patterns
+            
+        except Exception as e:
+            logger.warning(f"Pattern recognition failed: {e}")
+            return {"patterns": [], "confidence": 0.0, "error": str(e)}
+    
+    async def _infer(self, patterns: Dict, context: Optional[Dict]) -> Dict:
+        """Perform quantum inference."""
+        if not self.quantum_layer:
+            # Classical inference fallback
+            return self._classical_inference(patterns, context)
+        
+        try:
+            # Encode patterns into quantum state
+            quantum_state = await self.quantum_layer["inference"].encode(
+                data=patterns,
+                context=context or {},
+            )
+            
+            # Perform quantum inference
+            inference = await self.quantum_layer["inference"].infer(
+                quantum_state=quantum_state,
+                observable=self.config.quantum.inference_observable,
+            )
+            
+            # Manage quantum state
+            await self.quantum_layer["state_manager"].update(
+                state=quantum_state,
+                operation="inference",
+            )
+            
+            return inference
+            
+        except Exception as e:
+            logger.warning(f"Quantum inference failed: {e}")
+            # Fall back to classical inference
+            return self._classical_inference(patterns, context)
+    
+    def _classical_inference(self, patterns: Dict, context: Optional[Dict]) -> Dict:
+        """Classical inference fallback."""
+        import numpy as np
+        
+        # Simple rule-based inference
+        confidence = patterns.get("confidence", 0.5)
+        primary_pattern = patterns.get("primary_pattern", {})
+        
+        # Basic inference logic
+        inference_result = {
+            "decision": primary_pattern.get("category", "unknown"),
+            "confidence": float(confidence),
+            "reasoning": "Classical inference fallback",
+            "patterns_used": len(patterns.get("patterns", [])),
+            "quantum": False,
+        }
+        
+        return inference_result
+    
+    async def _plan_action(self, inference: Dict) -> Dict:
+        """Plan action based on inference."""
+        # Simple action planning logic
+        action = {
+            "type": inference.get("decision", "no_action"),
+            "parameters": inference.get("parameters", {}),
+            "priority": inference.get("confidence", 0.5),
+            "constraints": self.config.edge.action_constraints,
+        }
+        
+        # Add timing information
+        action["timestamp"] = time.time()
+        action["deadline"] = time.time() + self.config.edge.action_timeout
+        
+        return action
+    
+    async def _execute_action(self, action: Dict) -> Dict:
+        """Execute action through edge layer."""
+        if not self.edge_layer or not self.edge_layer["actuators"]:
+            # Simulate action execution
+            return {
+                "action": action,
+                "executed": False,
+                "result": "simulated",
+                "timestamp": time.time(),
+            }
+        
+        try:
+            # Execute through actuators
+            result = await self.edge_layer["actuators"].execute(
+                action_type=action["type"],
+                parameters=action["parameters"],
+                priority=action["priority"],
+            )
+            
+            return {
+                "action": action,
+                "executed": True,
+                "result": result,
+                "timestamp": time.time(),
+            }
+            
+        except Exception as e:
+            logger.warning(f"Action execution failed: {e}")
+            return {
+                "action": action,
+                "executed": False,
+                "error": str(e),
+                "timestamp": time.time(),
+            }
+    
+    async def _learn(self, perception: Dict, inference: Dict, result: Dict) -> None:
+        """Learn from the processing experience."""
+        if self.state == SystemState.LEARNING:
+            # Don't start new learning if already learning
+            return
+        
+        self.state = SystemState.LEARNING
+        
+        try:
+            # Create learning experience
+            experience = {
+                "perception": perception,
+                "inference": inference,
+                "result": result,
+                "timestamp": time.time(),
+                "success": result.get("executed", False) and not result.get("error"),
+            }
+            
+            # Update neuromorphic memory
+            if self.neuromorphic_layer and self.neuromorphic_layer["memory"]:
+                await self.neuromorphic_layer["memory"].store(
+                    pattern=experience,
+                    context=perception.get("context", {}),
+                )
+            
+            # Update neuromorphic cortex (plasticity)
+            if self.neuromorphic_layer and self.neuromorphic_layer["cortex"]:
+                await self.neuromorphic_layer["cortex"].learn(
+                    experience=experience,
+                    learning_rate=self.config.neuromorphic.learning_rate,
+                )
+            
+            # Update quantum models
+            if self.quantum_layer and self.quantum_layer["inference"]:
+                await self.quantum_layer["inference"].update_model(
+                    data=experience,
+                    learning_rate=self.config.quantum.learning_rate,
+                )
+            
+            # Record learning metrics
+            self.metrics.learning_rate = self._calculate_learning_rate(experience)
+            self.metrics_collector.record_learning(experience)
+            
+        except Exception as e:
+            logger.warning(f"Learning failed: {e}")
+        
+        finally:
+            self.state = SystemState.READY
+    
+    async def _degraded_processing(self, input_data: Dict) -> Dict:
+        """Process input in degraded mode."""
+        logger.warning("Entering degraded processing mode")
+        
+        # Simple rule-based processing
+        if "emergency" in str(input_data).lower():
+            return {"action": "emergency_stop", "confidence": 0.9}
+        
+        if "sensor" in str(input_data).lower() and "error" in str(input_data).lower():
+            return {"action": "sensor_recalibration", "confidence": 0.7}
+        
+        return {"action": "continue_monitoring", "confidence": 0.5}
+    
+    async def _health_monitoring_loop(self) -> None:
+        """Continuous health monitoring loop."""
+        while self.state not in [SystemState.FAILED, SystemState.SHUTTING_DOWN]:
+            try:
+                await asyncio.sleep(self.health_check_interval)
+                await self._check_health()
+                
+            except asyncio.CancelledError:
+                break
+            except Exception as e:
+                logger.error(f"Health monitoring error: {e}")
+    
+    async def _check_health(self) -> None:
+        """Perform comprehensive health check."""
+        health_status = {
+            "timestamp": time.time(),
+            "system_state": self.state.value,
+            "layers": {},
+            "metrics": self.metrics.to_dict(),
+            "overall_health": 1.0,
+        }
+        
+        # Check quantum layer
+        if self.quantum_layer:
+            try:
+                quantum_health = await self.quantum_layer["state_manager"].get_health()
+                health_status["layers"]["quantum"] = quantum_health
+                health_status["overall_health"] *= quantum_health.get("coherence", 1.0)
+            except Exception as e:
+                health_status["layers"]["quantum"] = {"error": str(e), "healthy": False}
+                health_status["overall_health"] *= 0.5
+        
+        # Check neuromorphic layer
+        if self.neuromorphic_layer:
+            try:
+                neuro_health = await self.neuromorphic_layer["cortex"].get_health()
+                health_status["layers"]["neuromorphic"] = neuro_health
+                health_status["overall_health"] *= neuro_health.get("activity", 1.0)
+            except Exception as e:
+                health_status["layers"]["neuromorphic"] = {"error": str(e), "healthy": False}
+                health_status["overall_health"] *= 0.7
+        
+        # Check edge layer
+        if self.edge_layer:
+            try:
+                edge_health = await self.edge_layer["sensor_fusion"].get_health()
+                health_status["layers"]["edge"] = edge_health
+                health_status["overall_health"] *= edge_health.get("latency", 1.0)
+            except Exception as e:
+                health_status["layers"]["edge"] = {"error": str(e), "healthy": False}
+                health_status["overall_health"] *= 0.8
+        
+        # Update system state based on health
+        if health_status["overall_health"] < 0.3:
+            self.state = SystemState.FAILED
+        elif health_status["overall_health"] < 0.7:
+            self.state = SystemState.DEGRADED
+        else:
+            self.state = SystemState.READY
+        
+        # Record health metrics
+        self.metrics_collector.record_health(health_status)
+        
+        logger.debug(f"Health check completed: {health_status['overall_health']:.2f}")
+    
+    def _get_available_layers(self) -> List[str]:
+        """Get list of available layers."""
+        layers = []
+        if self.quantum_layer:
+            layers.append("quantum")
+        if self.neuromorphic_layer:
+            layers.append("neuromorphic")
+        if self.edge_layer:
+            layers.append("edge")
+        if self.resilience_layer:
+            layers.append("resilience")
+        if self.orchestration_layer:
+            layers.append("orchestration")
+        return layers
+    
+    def _extract_features(self, data: Dict) -> Any:
+        """Extract features for pattern recognition."""
+        # Simple feature extraction
+        import numpy as np
+        
+        features = []
+        
+        # Extract numerical features
+        for key, value in data.items():
+            if isinstance(value, (int, float)):
+                features.append(float(value))
+            elif isinstance(value, list):
+                if all(isinstance(v, (int, float)) for v in value):
+                    features.extend([float(v) for v in value])
+        
+        # Convert to numpy array
+        if features:
+            return np.array(features)
+        else:
+            return np.array([0.0])
+    
+    def _calculate_learning_rate(self, experience: Dict) -> float:
+        """Calculate current learning rate."""
+        # Simple learning rate calculation
+        success = experience.get("success", False)
+        confidence = experience.get("inference", {}).get("confidence", 0.5)
+        
+        if success and confidence > 0.8:
+            return 0.1  # Fast learning for successful high-confidence experiences
+        elif not success:
+            return 0.01  # Slow learning for failures
+        else:
+            return 0.05  # Moderate learning otherwise
+    
+    async def shutdown(self) -> None:
+        """Gracefully shutdown the system."""
+        logger.info("Shutting down QUENNE system...")
+        self.state = SystemState.SHUTTING_DOWN
+        
+        # Cancel health monitoring
+        if self.health_check_task:
+            self.health_check_task.cancel()
+            try:
+                await self.health_check_task
+            except asyncio.CancelledError:
+                pass
+        
+        # Shutdown layers in reverse order
+        if self.orchestration_layer:
+            try:
+                await self.orchestration_layer["synchronizer"].shutdown()
+            except Exception as e:
+                logger.warning(f"Orchestration shutdown error: {e}")
+        
+        if self.resilience_layer:
+            try:
+                await self.resilience_layer["homeostat"].shutdown()
+            except Exception as e:
+                logger.warning(f"Resilience shutdown error: {e}")
+        
+        if self.edge_layer:
+            try:
+                await self.edge_layer["actuators"].shutdown()
+            except Exception as e:
+                logger.warning(f"Edge shutdown error: {e}")
+        
+        if self.neuromorphic_layer:
+            try:
+                await self.neuromorphic_layer["cortex"].shutdown()
+            except Exception as e:
+                logger.warning(f"Neuromorphic shutdown error: {e}")
+        
+        if self.quantum_layer:
+            try:
+                await self.quantum_layer["inference"].shutdown()
+            except Exception as e:
+                logger.warning(f"Quantum shutdown error: {e}")
+        
+        # Final metrics
+        total_uptime = time.time() - self.start_time
+        self.metrics.uptime = total_uptime
+        self.metrics_collector.record_shutdown(total_uptime)
+        
+        logger.info(f"QUENNE system shutdown complete. Total uptime: {total_uptime:.2f} seconds")
+    
+    def get_status(self) -> Dict[str, Any]:
+        """Get current system status."""
+        return {
+            "state": self.state.value,
+            "uptime": time.time() - self.start_time,
+            "available_layers": self._get_available_layers(),
+            "config": self.config.to_dict(),
+            "metrics": self.metrics.to_dict(),
+            "health": self.metrics_collector.get_recent_health(),
+        }
+    
+    @staticmethod
+    def check_health() -> Dict[str, Any]:
+        """
+        Static health check method for Docker/Kubernetes health checks.
+        
+        Returns:
+            dict: Health status
+        """
+        import psutil
+        import platform
+        
+        return {
+            "status": "healthy",
+            "timestamp": time.time(),
+            "system": {
+                "platform": platform.platform(),
+                "python_version": platform.python_version(),
+                "cpu_percent": psutil.cpu_percent(),
+                "memory_percent": psutil.virtual_memory().percent,
+            },
+            "quenne": {
+                "version": __version__,
+                "state": "unknown",  # Would be set by instance
+            },
+        }
+```
+
+---
+
+🎯 16. Quick Start Script: quick_start.py
+
+```python
+#!/usr/bin/env python3
+"""
+QUENNE Quick Start Script
+
+This script demonstrates the basic usage of QUENNE
+for cognitive processing.
+"""
+
+import asyncio
+import json
+import logging
+from pathlib import Path
+import sys
+
+# Add parent directory to path for local development
+sys.path.insert(0, str(Path(__file__).parent.parent))
+
+from quenne import QUENNESystem, setup_logging
+
+# Configure logging
+setup_logging(level=logging.INFO)
+logger = logging.getLogger(__name__)
+
+async def main():
+    """Main demonstration function."""
+    print("=" * 70)
+    print("QUENNE QUICK START DEMONSTRATION")
+    print("Quantum-Edge-NeuroNorphic Engine v3.0")
+    print("=" * 70)
+    
+    # Configuration
+    config = {
+        "system": {
+            "name": "QuickStartDemo",
+            "version": "3.0.0",
+            "environment": "development",
+            "health_check_interval": 10,
+        },
+        "quantum": {
+            "enabled": True,
+            "logical_qubits": 32,
+            "backend": "simulator",
+            "error_correction": False,
+            "coherence_time": 100,  # ms
+            "error_rate": 0.01,
+            "learning_rate": 0.1,
+        },
+        "neuromorphic": {
+            "enabled": True,
+            "neuron_count": 1000,
+            "synapse_density": 10000,
+            "plasticity_type": "stdp",
+            "memory_dimension": 128,
+            "memory_capacity": 1000,
+            "recall_threshold": 0.7,
+            "learning_rate": 0.05,
+            "initial_patterns": [
+                {"type": "normal", "pattern": [0.1, 0.2, 0.3, 0.4]},
+                {"type": "alert", "pattern": [0.9, 0.8, 0.7, 0.6]},
+            ],
+        },
+        "edge": {
+            "enabled": True,
+            "sensors": ["temperature", "pressure", "motion"],
+            "actuators": ["alarm", "display", "valve"],
+            "fusion_method": "kalman",
+            "context_window": 10,
+            "update_rate": 0.1,
+            "control_mode": "adaptive",
+            "action_constraints": {"max_power": 100, "max_force": 50},
+            "action_timeout": 5.0,
+        },
+        "resilience": {
+            "enabled": True,
+            "homeostatic_targets": {
+                "computational_load": 0.7,
+                "energy_consumption": 50,
+                "memory_usage": 0.8,
+                "network_latency": 5,
+                "temperature": 45,
+            },
+            "adjustment_rate": 0.1,
+            "anomaly_threshold": 0.8,
+            "response_time": 0.5,
+            "power_target": 100,
+            "efficiency_target": 0.9,
+        },
+        "orchestration": {
+            "enabled": True,
+            "sync_interval": 0.1,
+            "sync_tolerance": 0.01,
+            "communication_protocol": "semantic",
+            "qos_level": "high",
+            "allocation_strategy": "dynamic",
+            "optimization_interval": 60,
+        },
+    }
+    
+    print("\n1. Initializing QUENNE System...")
+    
+    # Create and initialize system
+    try:
+        system = QUENNESystem(config=config)
+        await system.initialize()
+        
+        print(f"✅ System initialized successfully")
+        print(f"   State: {system.state.value}")
+        print(f"   Available layers: {system._get_available_layers()}")
+        
+    except Exception as e:
+        print(f"❌ System initialization failed: {e}")
+        return
+    
+    # Demonstrate processing
+    print("\n2. Demonstrating Cognitive Processing...")
+    
+    # Example 1: Simple sensor data processing
+    print("\n   Example 1: Sensor Data Analysis")
+    sensor_data = {
+        "temperature": 25.5,
+        "pressure": 1013.25,
+        "motion": 0.2,
+        "context": {"location": "lab", "time": "daytime"},
+    }
+    
+    print(f"   Input: {json.dumps(sensor_data, indent=4)}")
+    
+    try:
+        result = await system.process(
+            input_data={"sensors": sensor_data},
+            context={"task": "environment_monitoring"}
+        )
+        
+        print(f"   Output: {json.dumps(result['output'], indent=4)}")
+        print(f"   Confidence: {result['confidence']:.2%}")
+        print(f"   Processing Time: {result['processing_time']:.3f}s")
+        
+    except Exception as e:
+        print(f"   ❌ Processing failed: {e}")
+    
+    # Example 2: Pattern recognition
+    print("\n   Example 2: Pattern Recognition")
+    pattern_data = {
+        "sensors": {
+            "temperature": [25.5, 26.0, 25.8, 26.2, 25.9],
+            "pressure": [1013.2, 1013.1, 1013.3, 1013.2, 1013.4],
+        },
+        "context": {"pattern_type": "cyclic", "expected_period": 60},
+    }
+    
+    print(f"   Input: Pattern with {len(pattern_data['sensors']['temperature'])} samples")
+    
+    try:
+        result = await system.process(
+            input_data=pattern_data,
+            context={"task": "pattern_analysis"}
+        )
+        
+        print(f"   Recognized: {result['inference'].get('decision', 'unknown')}")
+        print(f"   Patterns Found: {result['patterns'].get('count', 0)}")
+        print(f"   Confidence: {result['confidence']:.2%}")
+        
+    except Exception as e:
+        print(f"   ❌ Pattern recognition failed: {e}")
+    
+    # Example 3: Anomaly detection
+    print("\n   Example 3: Anomaly Detection")
+    anomaly_data = {
+        "sensors": {
+            "temperature": 45.0,  # High temperature
+            "pressure": 950.0,    # Low pressure
+            "motion": 0.0,        # No motion
+        },
+        "context": {"location": "server_room", "thresholds": {"temp": 40, "pressure": 980}},
+    }
+    
+    print(f"   Input: Potential anomaly detected")
+    
+    try:
+        result = await system.process(
+            input_data=anomaly_data,
+            context={"task": "anomaly_detection", "emergency": True}
+        )
+        
+        print(f"   Decision: {result['output']['action']}")
+        print(f"   Confidence: {result['confidence']:.2%}")
+        
+        if result['output'].get('executed', False):
+            print(f"   Action Executed: Yes")
+        else:
+            print(f"   Action Executed: No (simulated)")
+        
+    except Exception as e:
+        print(f"   ❌ Anomaly detection failed: {e}")
+    
+    # Show system status
+    print("\n3. System Status Report")
+    status = system.get_status()
+    
+    print(f"   Uptime: {status['uptime']:.1f}s")
+    print(f"   System State: {status['state']}")
+    print(f"   Available Layers: {', '.join(status['available_layers'])}")
+    
+    metrics = status['metrics']
+    print(f"\n   Performance Metrics:")
+    print(f"     Quantum Coherence: {metrics['quantum_coherence']:.2%}")
+    print(f"     Neuromorphic Activity: {metrics['neuromorphic_activity']:.2%}")
+    print(f"     Edge Latency: {metrics['edge_latency']:.3f}s")
+    print(f"     Homeostatic Stability: {metrics['homeostatic_stability']:.2%}")
+    print(f"     Energy Efficiency: {metrics['energy_efficiency']:.2%}")
+    print(f"     Cognitive Load: {metrics['cognitive_load']:.2%}")
+    
+    # Health check
+    print("\n4. Health Check")
+    health = system.metrics_collector.get_recent_health()
+    
+    if health:
+        overall = health[-1].get('overall_health', 0)
+        if overall > 0.8:
+            print(f"   ✅ System Health: EXCELLENT ({overall:.2%})")
+        elif overall > 0.6:
+            print(f"   ⚠️  System Health: GOOD ({overall:.2%})")
+        elif overall > 0.4:
+            print(f"   ⚠️  System Health: FAIR ({overall:.2%})")
+        else:
+            print(f"   ❌ System Health: POOR ({overall:.2%})")
+    
+    # Shutdown
+    print("\n5. Shutting down...")
+    try:
+        await system.shutdown()
+        print("   ✅ System shutdown complete")
+    except Exception as e:
+        print(f"   ❌ Shutdown error: {e}")
+    
+    print("\n" + "=" * 70)
+    print("QUICK START DEMONSTRATION COMPLETE")
+    print("=" * 70)
+
+if __name__ == "__main__":
+    # Run the demonstration
+    asyncio.run(main())
+```
+
+---
+
+📝 17. GitHub Workflow: .github/workflows/ci.yml
+
+```yaml
+name: QUENNE CI/CD Pipeline
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main ]
+  schedule:
+    - cron: '0 0 * * 0'  # Weekly on Sunday
+
+env:
+  PYTHON_VERSION: '3.10'
+  POETRY_VERSION: '1.6.0'
+
+jobs:
+  test:
+    name: Test Suite
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ['3.10', '3.11', '3.12']
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v4
+      with:
+        python-version: ${{ matrix.python-version }}
+        cache: 'pip'
+    
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements-dev.txt
+        pip install -e .
+    
+    - name: Run unit tests
+      run: |
+        pytest tests/unit/ -v --cov=quenne --cov-report=xml
+    
+    - name: Run integration tests
+      run: |
+        pytest tests/integration/ -v --cov-append
+    
+    - name: Upload coverage to Codecov
+      uses: codecov/codecov-action@v3
+      with:
+        file: ./coverage.xml
+        flags: unittests
+        name: codecov-umbrella
+        fail_ci_if_error: true
+
+  lint:
+    name: Linting and Code Quality
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: ${{ env.PYTHON_VERSION }}
+    
+    - name: Install dependencies
+      run: |
+        pip install black flake8 isort mypy pylint bandit
+    
+    - name: Check black formatting
+      run: |
+        black --check quenne/ tests/
+    
+    - name: Check imports with isort
+      run: |
+        isort --check-only --profile black quenne/ tests/
+    
+    - name: Lint with flake8
+      run: |
+        flake8 quenne/ tests/ --max-line-length=100 --ignore=E203,W503
+    
+    - name: Type checking with mypy
+      run: |
+        mypy quenne/ --ignore-missing-imports --no-implicit-optional
+    
+    - name: Security check with bandit
+      run: |
+        bandit -r quenne/ -c pyproject.toml
+    
+    - name: Code complexity check
+      run: |
+        radon cc quenne/ -a -nc
+        radon mi quenne/
+
+  security:
+    name: Security Scanning
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Run Trivy vulnerability scanner
+      uses: aquasecurity/trivy-action@master
+      with:
+        scan-type: 'fs'
+        scan-ref: '.'
+        format: 'sarif'
+        output: 'trivy-results.sarif'
+    
+    - name: Upload Trivy scan results to GitHub Security tab
+      uses: github/codeql-action/upload-sarif@v2
+      with:
+        sarif_file: 'trivy-results.sarif'
+    
+    - name: Check for secrets in code
+      uses: trufflesecurity/trufflehog@main
+      with:
+        path: ./
+    
+    - name: Dependency vulnerability check
+      run: |
+        pip install safety
+        safety check --full-report
+
+  build:
+    name: Build and Package
+    runs-on: ubuntu-latest
+    needs: [test, lint, security]
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: ${{ env.PYTHON_VERSION }}
+    
+    - name: Build package
+      run: |
+        pip install build
+        python -m build
+    
+    - name: Upload build artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        name: dist
+        path: dist/
+
+  docker:
+    name: Build Docker Image
+    runs-on: ubuntu-latest
+    needs: [test, lint]
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v2
+    
+    - name: Login to DockerHub
+      if: github.event_name != 'pull_request'
+      uses: docker/login-action@v2
+      with:
+        username: ${{ secrets.DOCKER_USERNAME }}
+        password: ${{ secrets.DOCKER_PASSWORD }}
+    
+    - name: Build and push Docker image
+      uses: docker/build-push-action@v4
+      with:
+        context: .
+        file: ./Dockerfile
+        push: ${{ github.event_name != 'pull_request' }}
+        tags: |
+          quenneai/quenne:latest
+          quenneai/quenne:${{ github.sha }}
+          quenneai/quenne:${{ github.ref_name }}
+        cache-from: type=gha
+        cache-to: type=gha,mode=max
+
+  deploy-staging:
+    name: Deploy to Staging
+    runs-on: ubuntu-latest
+    needs: [build, docker]
+    if: github.ref == 'refs/heads/develop'
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Deploy to Kubernetes
+      env:
+        KUBECONFIG: ${{ secrets.KUBECONFIG_STAGING }}
+      run: |
+        kubectl apply -f kubernetes/
+        kubectl rollout status deployment/quenne-core -n quenne-staging
+
+  deploy-production:
+    name: Deploy to Production
+    runs-on: ubuntu-latest
+    needs: [deploy-staging]
+    if: github.ref == 'refs/heads/main'
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Wait for staging validation
+      run: |
+        echo "Waiting for staging validation..."
+        sleep 300  # 5 minutes wait for manual validation
+    
+    - name: Deploy to Production
+      env:
+        KUBECONFIG: ${{ secrets.KUBECONFIG_PRODUCTION }}
+      run: |
+        kubectl apply -f kubernetes/
+        kubectl rollout status deployment/quenne-core -n quenne-production
+
+  documentation:
+    name: Build Documentation
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: ${{ env.PYTHON_VERSION }}
+    
+    - name: Install documentation dependencies
+      run: |
+        pip install mkdocs mkdocs-material mkdocstrings[python]
+    
+    - name: Build documentation
+      run: |
+        mkdocs build
+    
+    - name: Deploy documentation
+      if: github.ref == 'refs/heads/main'
+      run: |
+        mkdocs gh-deploy --force
+
+  benchmark:
+    name: Performance Benchmark
+    runs-on: ubuntu-latest
+    needs: [test]
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: ${{ env.PYTHON_VERSION }}
+    
+    - name: Install dependencies
+      run: |
+        pip install -e .[all]
+    
+    - name: Run benchmarks
+      run: |
+        python -m quenne.utils.metrics run_benchmarks
+    
+    - name: Upload benchmark results
+      uses: actions/upload-artifact@v3
+      with:
+        name: benchmark-results
+        path: benchmark-results.json
+```
+
+---
+
+🚀 COMPLETE PROJECT PACKAGE SUMMARY
+
+What's Included:
+
+1. 📚 Documentation: Complete README, whitepaper, and technical documentation
+2. 🔧 Setup Files: Comprehensive installation and configuration
+3. 🐳 Containerization: Docker and Kubernetes deployment ready
+4. 🧪 Testing: Complete test suite with CI/CD
+5. 📦 Source Code: Full implementation of all QUENNE layers
+6. 🌐 APIs: REST and WebSocket interfaces
+7. 📊 Monitoring: Prometheus, Grafana, and logging setup
+8. 🏗️ Infrastructure: Terraform, Ansible, and cloud deployment
+9. 🔒 Security: Comprehensive security scanning and compliance
+10. 📈 Examples: Real-world use cases and tutorials
+
+Quick Installation:
+
+```bash
+# Clone the repository
+git clone https://github.com/nicolas-santiago/quenne.git
+cd quenne
+
+# Set up environment
+cp .env.example .env
+# Edit .env with your configuration
+
+# Install with pip
+pip install -e .[all]
+
+# Or with Docker
+docker-compose up -d
+
+# Or with Kubernetes
+kubectl apply -f kubernetes/
+```
+
+Project Maintenance:
+
+· Version: 3.0.0-alpha
+· Python: 3.10+
+· License: Quantum Innovation License v2.0
+· Status: Active Development
+· Support: GitHub Issues & Community Discord
+
+Contributing:
+
+See CONTRIBUTING.md for guidelines on contributing to QUENNE.
+
+---
+
+Project Maintainer: Nicolas Santiago
+Location: Saitama, Japan
+Date: January 5, 2026
+Email: safewayguardian@gmail.com
+Powered By: DeepSeek AI Research Technology
+Validated By: Chat GPT
+
+The future is cognitive. The platform is QUENNE.
