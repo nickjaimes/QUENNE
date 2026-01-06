@@ -2,13 +2,6 @@
 
 QUENNE: Quantum-Edge-NeuroNorphic Engine
 
-<div align="center">https://img.shields.io/badge/QUENNE-Cognitive%20Computing-blueviolet
-https://img.shields.io/badge/Version-3.0.0--alpha-green
-https://img.shields.io/badge/License-Quantum%20Innovation%20License-brightgreen
-https://img.shields.io/badge/Build-Passing-success
-https://img.shields.io/badge/Python-3.10%2B-blue
-https://img.shields.io/badge/Quantum-Qiskit%201.0%2B-8A2BE2
-https://img.shields.io/badge/Neuromorphic-PyTorch%202.0%2B-orange
 
 The First Unified Cognitive Computing Architecture
 Where Quantum Intelligence Meets Neuromorphic Cognition at the Edge
